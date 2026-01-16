@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURJAMAL | Scratch & Avant-Garde Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-light: #FFF9E3;
+            --gold-main: #D4AF37;
+            --gold-bright: #FFD700;
+            --gold-pale: #F4E0AF;
+            --bg-black: #080808;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Авангардный фон */
+        .background-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -10%, #2e2610 0%, #080808 70%);
+            z-index: -1;
+        }
+
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid var(--gold-main);
+            background: attachment fixed;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            letter-spacing: 12px;
+            background: linear-gradient(to right, var(--gold-pale), var(--gold-bright), var(--gold-main));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .contact-top {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: var(--gold-pale);
+            text-transform: uppercase;
+        }
+
+        /* Сетка видео - 24 ячейки */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 50px 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: var(--glass);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .video-card:hover {
+            border-color: var(--gold-bright);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .video-card video {
+            width: 100%;
+            aspect-ratio: 4/3; /* Стандарт для Scratch */
+            object-fit: cover;
+            display: block;
+            filter: sepia(20%) brightness(0.9);
+            transition: 0.5s;
+        }
+
+        .video-card:hover video {
+            filter: sepia(0%) brightness(1.1);
+        }
+
+        .video-info {
+            padding: 15px;
+            background: rgba(10, 10, 10, 0.8);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .video-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-pale);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Подвал с контактами */
+        .footer-contacts {
+            background: linear-gradient(transparent, rgba(212, 175, 55, 0.05));
+            padding: 80px 5%;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid var(--gold-main);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--gold-main);
+            color: #000;
+            box-shadow: 0 0 20px var(--gold-main);
+        }
+
+        .contact-link i {
+            color: var(--gold-bright);
+        }
+
+        .contact-link:hover i {
+            color: #000;
+        }
+
+        /* Скроллбар */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-main); }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <header>
+        <div class="contact-top">Avant-Garde & Scratch Art</div>
+        <h1>NURJAMAL</h1>
+        <p style="color: var(--gold-main); letter-spacing: 5px;">COLLECTION</p>
+    </header>
+
+    <main class="video-grid">
+        <div class="video-card">
+            <video src="nurjamal1.mov" loop muted onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="video-info"><h3>SCRATCH PROJECT 01</h3></div>
+        </div>
+
+        <div class="video-card">
+            <video src="nurjamal2.mov" loop muted onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="video-info"><h3>SCRATCH PROJECT 02</h3></div>
+        </div>
+
+        <script>
+            const grid = document.querySelector('.video-grid');
+            for(let i = 3; i <= 24; i++) {
+                grid.innerHTML += `
+                    <div class="video-card">
+                        <video src="video${i}.mp4" loop muted onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <div class="video-info"><h3>SCRATCH PROJECT ${i < 10 ? '0'+i : i}</h3></div>
+                    </div>
+                `;
+            }
+        </script>
+    </main>
+
+    <footer class="footer-contacts">
+        <h2 style="font-family: 'Cinzel', serif; letter-spacing: 5px; color: var(--gold-bright);">GET IN TOUCH</h2>
+        <div class="contact-links">
+            <a href="tel:+996554701570" class="contact-link">
+                <i class="fas fa-phone"></i> +996 554 701 570
+            </a>
+            <a href="https://t.me/Nurjamal11111" target="_blank" class="contact-link">
+                <i class="fab fa-telegram-plane"></i> @Nurjamal11111
+            </a>
+            <a href="mailto:nurzhamal.2509.kg@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> nurzhamal.2509.kg@gmail.com
+            </a>
+        </div>
+        <p style="margin-top: 50px; font-size: 0.7rem; color: var(--gold-main); opacity: 0.5;">
+            &copy; 2024 NURJAMAL | ALL RIGHTS RESERVED
+        </p>
+    </footer>
+
+</body>
+</html>
