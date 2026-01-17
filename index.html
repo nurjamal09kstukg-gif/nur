@@ -2,162 +2,86 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurjamal | Scratch Gallery</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Nurjamal Project</title>
     <style>
-        :root {
-            --gold-bright: #FFD700;
-            --gold-soft: #D4AF37;
-            --dark: #0a0a0a;
-            --glass: rgba(255, 255, 255, 0.05);
-        }
-
         body {
-            background-color: var(--dark);
-            color: #fff;
-            font-family: 'Cinzel', serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            width: 100%;
-            background: radial-gradient(circle at center, #1a1505 0%, #0a0a0a 100%);
-            border-bottom: 1px solid var(--gold-soft);
-        }
-
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 8px;
-            background: linear-gradient(to right, #FFF9E3, var(--gold-bright), var(--gold-soft));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 50px 5%;
-            max-width: 1400px;
-            width: 100%;
-        }
-
-        .video-card {
-            background: var(--glass);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.4s ease;
-            position: relative;
-        }
-
-        .video-card:hover {
-            border-color: var(--gold-bright);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
-            transform: translateY(-5px);
-        }
-
-        video {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-            background: #000;
-        }
-
-        .video-info {
-            padding: 15px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--gold-soft);
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .empty-slot {
+            background-color: #1a1a1a;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 200px;
-            background: rgba(212, 175, 55, 0.02);
-            border: 1px dashed rgba(212, 175, 55, 0.3);
-            color: rgba(212, 175, 55, 0.5);
-            font-size: 0.7rem;
-            text-transform: uppercase;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
         }
 
-        .contact-footer {
-            padding: 40px;
+        .container {
             text-align: center;
-            border-top: 1px solid var(--gold-soft);
-            width: 100%;
-            background: #000;
+            padding: 40px;
+            border: 2px solid #00f2fe;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+            backdrop-filter: blur(10px);
         }
 
-        .contact-footer a {
-            color: var(--gold-bright);
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
+        h1 {
+            font-size: 80px;
+            margin: 0;
+            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.05); opacity: 1; }
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: transparent;
+            color: #00f2fe;
+            border: 2px solid #00f2fe;
+            border-radius: 50px;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .contact-footer a:hover { text-shadow: 0 0 8px var(--gold-bright); }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .video-grid { grid-template-columns: 1fr; }
+        button:hover {
+            background: #00f2fe;
+            color: #1a1a1a;
+            box-shadow: 0 0 30px #00f2fe;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>NURJAMAL</h1>
-        <p style="color: var(--gold-soft); letter-spacing: 3px;">SCRATCH PROJECTS COLLECTION</p>
-    </header>
+    <div class="container">
+        <h1 id="nameDisplay">NUR</h1>
+        <button onclick="changeText()">Нажми на меня</button>
+    </div>
 
-    <main class="video-grid">
-        <div class="video-card">
-            <video controls>
-                <source src="videos/nurjamal1.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-info">Manhwa Quiz Project</div>
-        </div>
-
-        <div class="video-card">
-            <video controls>
-                <source src="videos/nurjamal2.mov" type="video/mp4">
-            </video>
-            <div class="video-info">Scratch Animation Effect</div>
-        </div>
-
-        <script>
-            for(let i=3; i<=24; i++) {
-                document.write(`
-                    <div class="video-card">
-                        <div class="empty-slot">Слот для видео #${i} <br> (Ожидание загрузки)</div>
-                        <div class="video-info">Coming Soon...</div>
-                    </div>
-                `);
+    <script>
+        function changeText() {
+            const title = document.getElementById('nameDisplay');
+            if (title.innerText === "NUR") {
+                title.innerText = "JAMAL";
+                title.style.background = "linear-gradient(to right, #f093fb 0%, #f5576c 100%)";
+                title.style.webkitBackgroundClip = "text";
+            } else {
+                title.innerText = "NUR";
+                title.style.background = "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)";
+                title.style.webkitBackgroundClip = "text";
             }
-        </script>
-    </main>
-
-    <footer class="contact-footer">
-        <a href="tel:+996554701570"><i class="fas fa-phone"></i> +996 554 701 570</a>
-        <a href="https://t.me/Nurjamal11111" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="mailto:nurzhamal.2509.kg@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-    </footer>
-
+            console.log("Текст изменен!");
+        }
+    </script>
 </body>
 </html>
