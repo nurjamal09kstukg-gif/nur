@@ -2,86 +2,47 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Nurjamal Project</title>
+    <title>Мои проекты Scratch</title>
     <style>
-        body {
-            background-color: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            padding: 40px;
-            border: 2px solid #00f2fe;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
-            backdrop-filter: blur(10px);
-        }
-
-        h1 {
-            font-size: 80px;
-            margin: 0;
-            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 10px;
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); opacity: 0.8; }
-            to { transform: scale(1.05); opacity: 1; }
-        }
-
-        button {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 18px;
-            background: transparent;
-            color: #00f2fe;
-            border: 2px solid #00f2fe;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #00f2fe;
-            color: #1a1a1a;
-            box-shadow: 0 0 30px #00f2fe;
-        }
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f0f0f0; }
+        .container { background: white; padding: 20px; border-radius: 10px; shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        video { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
+        .project-box { margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+        h2 { color: #4D97FF; }
+        iframe { border: none; border-radius: 8px; width: 100%; height: 402px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 id="nameDisplay">NUR</h1>
-        <button onclick="changeText()">Нажми на меня</button>
+<div class="container">
+    <h1>Мои работы на Scratch</h1>
+
+    <div class="project-box">
+        <h2>1. Видео демонстрация (scratch3.mp4)</h2>
+        <video controls>
+            <source src="scratch3.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
     </div>
 
-    <script>
-        function changeText() {
-            const title = document.getElementById('nameDisplay');
-            if (title.innerText === "NUR") {
-                title.innerText = "JAMAL";
-                title.style.background = "linear-gradient(to right, #f093fb 0%, #f5576c 100%)";
-                title.style.webkitBackgroundClip = "text";
-            } else {
-                title.innerText = "NUR";
-                title.style.background = "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)";
-                title.style.webkitBackgroundClip = "text";
-            }
-            console.log("Текст изменен!");
-        }
-    </script>
+    <div class="project-box">
+        <h2>2. Проект Scratch (Интерактивный)</h2>
+        <p>Для просмотра проекта используйте плеер TurboWarp (поддерживает .sb2 и .sb3):</p>
+        
+        <iframe src="https://turbowarp.org/embed.html?project_url=ВАША_ПРЯМАЯ_ССЫЛКА_НА_ФАЙЛ.sb3" 
+                allowtransparency="true" 
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="project-box">
+        <h2>3. Исходные файлы</h2>
+        <ul>
+            <li><a href="scratch3.mp4" download>Скачать видео .mp4</a></li>
+            <li><a href="scratch2.sb2" download>Скачать проект Scratch 2 (.sb2)</a></li>
+            <li><a href="scratch1.sb" download>Скачать проект Scratch 1 (.sb)</a></li>
+        </ul>
+    </div>
+</div>
+
 </body>
 </html>
