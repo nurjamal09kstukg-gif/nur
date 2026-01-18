@@ -3,99 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио Scratch Проектов</title>
+    <title>Мои Видео и Проекты</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
             padding: 20px;
-            background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .card {
+        .container {
+            max-width: 800px;
+            width: 100%;
             background: white;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        h1 { color: #4D97FF; border-bottom: 3px solid #4D97FF; padding-bottom: 10px; }
-        h2 { color: #855cd6; margin-top: 30px; }
+        h1 { color: #4D97FF; text-align: center; }
+        h2 { color: #333; border-left: 5px solid #4D97FF; padding-left: 10px; margin-top: 30px; }
         
-        /* Стили для видео */
-        .video-container {
-            margin: 20px 0;
-            background: #000;
-            border-radius: 10px;
-            overflow: hidden;
-            line-height: 0;
-        }
-        video { width: 100%; height: auto; }
-
-        /* Стили для контактов */
-        .contacts {
-            background: #eef5ff;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #4D97FF;
-            margin-top: 40px;
-        }
-        .contacts p { margin: 10px 0; font-weight: bold; }
-        .contacts a { color: #4D97FF; text-decoration: none; }
-        .contacts a:hover { text-decoration: underline; }
-
-        .file-links {
+        .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: 1fr;
+            gap: 25px;
             margin-top: 20px;
         }
-        .file-btn {
-            display: block;
-            text-align: center;
+        .video-item {
+            background: #fafafa;
             padding: 15px;
-            background: #855cd6;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.2s;
+            border-radius: 12px;
+            border: 1px solid #eee;
         }
-        .file-btn:hover { transform: translateY(-3px); background: #724eb7; }
+        video {
+            width: 100%;
+            border-radius: 8px;
+            background: #000;
+        }
+        .video-name {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .contact-card {
+            margin-top: 40px;
+            padding: 20px;
+            background: #eef5ff;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .contact-card p { margin: 10px 0; font-size: 1.1em; }
+        .contact-card a { 
+            color: #0088cc; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        .contact-card a:hover { text-decoration: underline; }
+        
+        .btn-tg {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #0088cc;
+            color: white !important;
+            border-radius: 25px;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>Мои проекты Scratch</h1>
+<div class="container">
+    <h1>Галерея видео Nurjamal</h1>
 
-    <div class="project-section">
-        <h2>Смотреть демонстрацию (Scratch 3)</h2>
-        <div class="video-container">
+    <div class="video-grid">
+        <div class="video-item">
+            <span class="video-name">Видео: тг.mp4</span>
             <video controls>
-                <source src="scratch3.mp4" type="video/mp4">
-                Ваш браузер не поддерживает просмотр видео.
+                <source src="тг.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item">
+            <span class="video-name">Видео: то.mp4</span>
+            <video controls>
+                <source src="то.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item">
+            <span class="video-name">Видео: scratch3.mov</span>
+            <video controls>
+                <source src="scratch3.mov" type="video/quicktime">
+                <source src="scratch3.mov" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item">
+            <span class="video-name">Видео: nurjamal1.mp4</span>
+            <video controls>
+                <source src="nurjamal1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item">
+            <span class="video-name">Видео: nurja1.mp4</span>
+            <video controls>
+                <source src="nurja1.mp4" type="video/mp4">
             </video>
         </div>
     </div>
 
-    <hr>
-
-    <div class="project-section">
-        <h2>Исходные файлы для скачивания</h2>
-        <p>Вы можете скачать эти файлы и открыть их в соответствующих версиях Scratch:</p>
-        <div class="file-links">
-            <a href="scratch1.sb" class="file-btn" download>Проект Scratch 1.4 (.sb)</a>
-            <a href="scratch2.sb2" class="file-btn" download>Проект Scratch 2.0 (.sb2)</a>
-            <a href="scratch3.sb3" class="file-btn" download>Проект Scratch 3.0 (.sb3)</a>
-        </div>
-    </div>
-
-    <div class="contacts">
-        <h2>Связаться со мной</h2>
-        <p>📱 Телефон: <a href="tel:+996554701570">+996 (554) 701-570</a></p>
-        <p>✈️ Telegram: <a href="https://t.me/+996554701570" target="_blank">@my_scratch_profile</a></p>
-        <p>📧 Email: <a href="mailto:vash_email@example.com">vash_email@example.com</a></p>
+    <div class="contact-card">
+        <h2>Мои контакты</h2>
+        <p>📞 Телефон: <a href="tel:+996554701570">+996 554 701 570</a></p>
+        <p>📧 Email: <a href="mailto:nurjamal@example.com">nurjamal@example.com</a></p>
+        <a href="https://t.me/+996554701570" class="btn-tg">Написать в Telegram</a>
     </div>
 </div>
 
