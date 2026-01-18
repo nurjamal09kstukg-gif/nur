@@ -2,45 +2,100 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мои проекты Scratch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Scratch Проектов</title>
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f0f0f0; }
-        .container { background: white; padding: 20px; border-radius: 10px; shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        video { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
-        .project-box { margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
-        h2 { color: #4D97FF; }
-        iframe { border: none; border-radius: 8px; width: 100%; height: 402px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 { color: #4D97FF; border-bottom: 3px solid #4D97FF; padding-bottom: 10px; }
+        h2 { color: #855cd6; margin-top: 30px; }
+        
+        /* Стили для видео */
+        .video-container {
+            margin: 20px 0;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            line-height: 0;
+        }
+        video { width: 100%; height: auto; }
+
+        /* Стили для контактов */
+        .contacts {
+            background: #eef5ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4D97FF;
+            margin-top: 40px;
+        }
+        .contacts p { margin: 10px 0; font-weight: bold; }
+        .contacts a { color: #4D97FF; text-decoration: none; }
+        .contacts a:hover { text-decoration: underline; }
+
+        .file-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .file-btn {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            background: #855cd6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .file-btn:hover { transform: translateY(-3px); background: #724eb7; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Мои работы на Scratch</h1>
+<div class="card">
+    <h1>Мои проекты Scratch</h1>
 
-    <div class="project-box">
-        <h2>1. Видео демонстрация (scratch3.mp4)</h2>
-        <video controls>
-            <source src="scratch3.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
+    <div class="project-section">
+        <h2>Смотреть демонстрацию (Scratch 3)</h2>
+        <div class="video-container">
+            <video controls>
+                <source src="scratch3.mp4" type="video/mp4">
+                Ваш браузер не поддерживает просмотр видео.
+            </video>
+        </div>
     </div>
 
-    <div class="project-box">
-        <h2>2. Проект Scratch (Интерактивный)</h2>
-        <p>Для просмотра проекта используйте плеер TurboWarp (поддерживает .sb2 и .sb3):</p>
-        
-        <iframe src="https://turbowarp.org/embed.html?project_url=ВАША_ПРЯМАЯ_ССЫЛКА_НА_ФАЙЛ.sb3" 
-                allowtransparency="true" 
-                allowfullscreen></iframe>
+    <hr>
+
+    <div class="project-section">
+        <h2>Исходные файлы для скачивания</h2>
+        <p>Вы можете скачать эти файлы и открыть их в соответствующих версиях Scratch:</p>
+        <div class="file-links">
+            <a href="scratch1.sb" class="file-btn" download>Проект Scratch 1.4 (.sb)</a>
+            <a href="scratch2.sb2" class="file-btn" download>Проект Scratch 2.0 (.sb2)</a>
+            <a href="scratch3.sb3" class="file-btn" download>Проект Scratch 3.0 (.sb3)</a>
+        </div>
     </div>
 
-    <div class="project-box">
-        <h2>3. Исходные файлы</h2>
-        <ul>
-            <li><a href="scratch3.mp4" download>Скачать видео .mp4</a></li>
-            <li><a href="scratch2.sb2" download>Скачать проект Scratch 2 (.sb2)</a></li>
-            <li><a href="scratch1.sb" download>Скачать проект Scratch 1 (.sb)</a></li>
-        </ul>
+    <div class="contacts">
+        <h2>Связаться со мной</h2>
+        <p>📱 Телефон: <a href="tel:+996554701570">+996 (554) 701-570</a></p>
+        <p>✈️ Telegram: <a href="https://t.me/+996554701570" target="_blank">@my_scratch_profile</a></p>
+        <p>📧 Email: <a href="mailto:vash_email@example.com">vash_email@example.com</a></p>
     </div>
 </div>
 
