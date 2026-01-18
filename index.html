@@ -2,128 +2,90 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои Видео и Проекты</title>
+    <title>Видео Nurjamal</title>
     <style>
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            background: #f6f6f6;
             margin: 0;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        h1 {
+            text-align: center;
         }
-        h1 { color: #4D97FF; text-align: center; }
-        h2 { color: #333; border-left: 5px solid #4D97FF; padding-left: 10px; margin-top: 30px; }
-        
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-top: 20px;
-        }
-        .video-item {
-            background: #fafafa;
+        .video {
+            margin: 30px auto;
+            max-width: 700px;
+            background: #fff;
             padding: 15px;
             border-radius: 12px;
-            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         video {
             width: 100%;
-            border-radius: 8px;
-            background: #000;
+            border-radius: 10px;
         }
-        .video-name {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        .contact-card {
+        .contacts {
             margin-top: 40px;
             padding: 20px;
-            background: #eef5ff;
-            border-radius: 15px;
+            background: #fff;
+            border-radius: 12px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
-        .contact-card p { margin: 10px 0; font-size: 1.1em; }
-        .contact-card a { 
-            color: #0088cc; 
-            text-decoration: none; 
-            font-weight: bold; 
-        }
-        .contact-card a:hover { text-decoration: underline; }
-        
-        .btn-tg {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #0088cc;
-            color: white !important;
-            border-radius: 25px;
-            text-decoration: none !important;
+        a {
+            color: #0077ff;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Галерея видео Nurjamal</h1>
+<h1>🎬 Видео Nurjamal</h1>
 
-    <div class="video-grid">
-        <div class="video-item">
-            <span class="video-name">Видео: тг.mp4</span>
-            <video controls>
-                <source src="тг.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video">
+    <h3>tg.mp4</h3>
+    <video controls>
+        <source src="tg.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-item">
-            <span class="video-name">Видео: то.mp4</span>
-            <video controls>
-                <source src="то.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video">
+    <h3>to.mp4</h3>
+    <video controls>
+        <source src="to.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-item">
-            <span class="video-name">Видео: scratch3.mov</span>
-            <video controls>
-                <source src="scratch3.mov" type="video/quicktime">
-                <source src="scratch3.mov" type="video/mp4">
-            </video>
-        </div>
+<div class="video">
+    <h3>scratch3.mov</h3>
+    <video controls>
+        <source src="scratch3.mov" type="video/quicktime">
+    </video>
+</div>
 
-        <div class="video-item">
-            <span class="video-name">Видео: nurjamal1.mp4</span>
-            <video controls>
-                <source src="nurjamal1.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video">
+    <h3>nurjamal1.mp4</h3>
+    <video controls>
+        <source src="nurjamal1.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-item">
-            <span class="video-name">Видео: nurja1.mp4</span>
-            <video controls>
-                <source src="nurja1.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
+<div class="video">
+    <h3>nurja1.mp4</h3>
+    <video controls>
+        <source src="nurja1.mp4" type="video/mp4">
+    </video>
+</div>
 
-    <div class="contact-card">
-        <h2>Мои контакты</h2>
-        <p>📞 Телефон: <a href="tel:+996554701570">+996 554 701 570</a></p>
-        <p>📧 Email: <a href="mailto:nurjamal@example.com">nurjamal@example.com</a></p>
-        <a href="https://t.me/+996554701570" class="btn-tg">Написать в Telegram</a>
-    </div>
+<div class="contacts">
+    <h2>📞 Контакты</h2>
+    <p>Телефон: <a href="tel:+996554701570">+996 554 701 570</a></p>
+    <p>Telegram: <a href="https://t.me/+996554701570">Написать в Telegram</a></p>
+    <p>Email: <a href="mailto:nurjamal@gmail.com">nurjamal@gmail.com</a></p>
 </div>
 
 </body>
