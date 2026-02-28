@@ -21,9 +21,24 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        video {
+        video, iframe {
             width: 100%;
             border-radius: 10px;
+            border: none;
+        }
+        /* Стиль для соблюдения пропорций YouTube видео (16:9) */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
         .contacts {
             margin-top: 40px;
@@ -45,6 +60,26 @@
 <body>
 
 <h1>🎬 Видео Nurjamal</h1>
+
+<div class="video">
+    <h3>YouTube Видео 1</h3>
+    <div class="iframe-container">
+        <iframe src="https://www.youtube.com/embed/rNhHJYa-ZAQ" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<div class="video">
+    <h3>YouTube Видео 2</h3>
+    <div class="iframe-container">
+        <iframe src="https://www.youtube.com/embed/O1ThGoCa0HE" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
 
 <div class="video">
     <h3>scratch3.mov</h3>
