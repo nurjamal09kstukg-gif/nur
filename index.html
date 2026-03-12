@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Видео Nurjamal</title>
+    <title>Видео и Музыка Nurjamal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,11 +13,11 @@
         h1 {
             text-align: center;
         }
-        .video {
+        .video, .music-tool {
             margin: 30px auto;
             max-width: 700px;
             background: #fff;
-            padding: 15px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
@@ -26,19 +26,15 @@
             border-radius: 10px;
             border: none;
         }
-        /* Стиль для соблюдения пропорций YouTube видео (16:9) */
         .iframe-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
         }
         .iframe-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
         .contacts {
             margin-top: 40px;
@@ -55,11 +51,39 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        /* Стили для нейросети */
+        #status {
+            margin: 10px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        #result {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .score-bar {
+            background: #0077ff;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 
 <h1>🎬 Видео Nurjamal</h1>
+
+<div class="music-tool">
+    <h3>🎵 Нейросеть: Распознать жанр музыки</h3>
+    <p style="font-size: 0.8em; color: #888;">Выберите аудиофайл, и AI определит, что в нем звучит.</p>
+    <input type="file" id="audio-upload" accept="audio/*">
+    <div id="status">Ожидание файла...</div>
+    <div id="result"></div>
+</div>
 
 <div class="video">
     <h3>YouTube Видео 1</h3>
@@ -88,26 +112,56 @@
     </video>
 </div>
 
-<div class="video">
-    <h3>nurjamal1.mp4</h3>
-    <video controls>
-        <source src="nurjamal1.mp4" type="video/mp4">
-    </video>
-</div>
-
-<div class="video">
-    <h3>nurja1.mp4</h3>
-    <video controls>
-        <source src="nurja1.mp4" type="video/mp4">
-    </video>
-</div>
-
 <div class="contacts">
     <h2>📞 Контакты</h2>
     <p>Телефон: <a href="tel:+996554701570">+996 554 701 570</a></p>
     <p>Telegram: <a href="https://t.me/+996554701570">Написать в Telegram</a></p>
     <p>Email: <a href="mailto:nurjamal@gmail.com">nurjamal@gmail.com</a></p>
 </div>
+
+<script type="module">
+    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
+
+    const status = document.getElementById('status');
+    const resultDiv = document.getElementById('result');
+    const fileInput = document.getElementById('audio-upload');
+
+    let classifier;
+
+    fileInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        resultDiv.innerHTML = "";
+        status.innerText = "⏳ Загрузка модели (только первый раз)...";
+        
+        try {
+            if (!classifier) {
+                // Используем стабильную модель AST
+                classifier = await pipeline('audio-classification', 'Xenova/ast-finetuned-audioset-10-10-0.4593');
+            }
+
+            status.innerText = "🔍 Анализирую звуки...";
+            
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                const output = await classifier(event.target.result);
+                
+                status.innerText = "✅ Результат анализа:";
+                resultDiv.innerHTML = output.slice(0, 3).map(item => `
+                    <div>
+                        <strong>${item.label}</strong>: ${(item.score * 100).toFixed(1)}%
+                        <div class="score-bar" style="width: ${item.score * 100}%"></div>
+                    </div>
+                `).join('');
+            };
+            reader.readAsDataURL(file);
+
+        } catch (err) {
+            status.innerText = "❌ Ошибка: " + err.message;
+        }
+    });
+</script>
 
 </body>
 </html>
