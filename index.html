@@ -2,163 +2,241 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Видео и Музыка Nurjamal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurjamal | Tech Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f6f6f6;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .video, .music-tool {
-            margin: 30px auto;
-            max-width: 700px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        video, iframe {
-            width: 100%;
-            border-radius: 10px;
-            border: none;
-        }
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-        .iframe-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
-        .contacts {
-            margin-top: 40px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 12px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        a {
-            color: #0077ff;
-            text-decoration: none;
-            font-weight: bold;
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text: #f1f5f9;
         }
 
-        /* Стили для нейросети */
-        #status {
-            margin: 10px 0;
-            font-size: 0.9em;
-            color: #666;
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        #result {
-            background: #f9f9f9;
-            padding: 10px;
+
+        /* Шапка и навигация */
+        header {
+            width: 100%;
+            padding: 40px 0;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+            text-align: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: #1e293b;
+            padding: 5px;
+            border-radius: 12px;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            border: none;
             border-radius: 8px;
-            margin-top: 10px;
-            font-size: 0.9em;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        .score-bar {
-            background: #0077ff;
-            height: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: var(--bg);
         }
+
+        /* Контентные области */
+        .container {
+            width: 90%;
+            max-width: 900px;
+            display: none;
+            padding-bottom: 50px;
+        }
+
+        .container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Карточки */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+        }
+
+        h3 { color: var(--accent); margin-top: 0; }
+
+        /* Стили для нейросети */
+        .upload-zone {
+            border: 2px dashed #334155;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-zone:hover { border-color: var(--accent); background: #1e293b; }
+
+        #audio-upload { display: none; }
+
+        .btn-main {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .progress-container { margin-top: 20px; }
+        .bar-bg { background: #334155; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 5px; }
+        .bar-fill { background: var(--accent); height: 100%; transition: width 0.5s; }
+
+        /* Контакты */
+        .contacts-footer {
+            background: #1e293b;
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #334155;
+        }
+
+        .contacts-footer a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: bold; }
+
+        video, iframe { width: 100%; border-radius: 12px; margin-top: 10px; }
+        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; }
+        .iframe-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
     </style>
 </head>
 <body>
 
-<h1>🎬 Видео Nurjamal</h1>
+<header>
+    <h1>🚀 Nurjamal Digital Space</h1>
+    <center>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('works')">Мои работы</button>
+            <button class="tab-btn" onclick="openTab('ai-lab')">AI Лаборатория</button>
+        </div>
+    </center>
+</header>
 
-<div class="music-tool">
-    <h3>🎵 Нейросеть: Распознать жанр музыки</h3>
-    <p style="font-size: 0.8em; color: #888;">Выберите аудиофайл, и AI определит, что в нем звучит.</p>
-    <input type="file" id="audio-upload" accept="audio/*">
-    <div id="status">Ожидание файла...</div>
-    <div id="result"></div>
-</div>
+<div id="works" class="container active">
+    <div class="card">
+        <h3>🎥 YouTube Проект 1</h3>
+        <div class="iframe-container">
+            <iframe src="https://www.youtube.com/embed/rNhHJYa-ZAQ" allowfullscreen></iframe>
+        </div>
+    </div>
 
-<div class="video">
-    <h3>YouTube Видео 1</h3>
-    <div class="iframe-container">
-        <iframe src="https://www.youtube.com/embed/rNhHJYa-ZAQ" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-        </iframe>
+    <div class="card">
+        <h3>🎬 Видео Презентация</h3>
+        <video controls>
+            <source src="nurjamal1.mp4" type="video/mp4">
+        </video>
     </div>
 </div>
 
-<div class="video">
-    <h3>YouTube Видео 2</h3>
-    <div class="iframe-container">
-        <iframe src="https://www.youtube.com/embed/O1ThGoCa0HE" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-        </iframe>
+<div id="ai-lab" class="container">
+    <div class="card">
+        <h3>🎵 Музыкальный AI-Анализатор</h3>
+        <p>Загрузите аудио, чтобы нейросеть определила жанр и инструменты в реальном времени.</p>
+        
+        <label for="audio-upload" class="upload-zone" id="drop-zone">
+            <p id="status-text">Нажмите сюда или перетащите аудиофайл</p>
+            <div class="btn-main">Выбрать файл</div>
+            <input type="file" id="audio-upload" accept="audio/*">
+        </label>
+
+        <div id="ai-results" class="progress-container"></div>
     </div>
 </div>
 
-<div class="video">
-    <h3>scratch3.mov</h3>
-    <video controls>
-        <source src="scratch3.mov" type="video/quicktime">
-    </video>
-</div>
-
-<div class="contacts">
-    <h2>📞 Контакты</h2>
-    <p>Телефон: <a href="tel:+996554701570">+996 554 701 570</a></p>
-    <p>Telegram: <a href="https://t.me/+996554701570">Написать в Telegram</a></p>
-    <p>Email: <a href="mailto:nurjamal@gmail.com">nurjamal@gmail.com</a></p>
-</div>
+<footer class="contacts-footer">
+    <h3>📡 Связь со мной</h3>
+    <a href="tel:+996554701570">📞 Позвонить</a>
+    <a href="https://t.me/+996554701570">✈️ Telegram</a>
+    <a href="mailto:nurjamal@gmail.com">📧 Email</a>
+</footer>
 
 <script type="module">
     import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
 
-    const status = document.getElementById('status');
-    const resultDiv = document.getElementById('result');
-    const fileInput = document.getElementById('audio-upload');
+    // Навигация по вкладкам
+    window.openTab = function(tabId) {
+        document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
 
+    // AI Логика
+    const statusText = document.getElementById('status-text');
+    const aiResults = document.getElementById('ai-results');
+    const fileInput = document.getElementById('audio-upload');
     let classifier;
 
     fileInput.addEventListener('change', async (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        resultDiv.innerHTML = "";
-        status.innerText = "⏳ Загрузка модели (только первый раз)...";
-        
+        statusText.innerText = "⚡ Подготовка нейросети...";
+        aiResults.innerHTML = "";
+
         try {
             if (!classifier) {
-                // Используем стабильную модель AST
                 classifier = await pipeline('audio-classification', 'Xenova/ast-finetuned-audioset-10-10-0.4593');
             }
 
-            status.innerText = "🔍 Анализирую звуки...";
+            statusText.innerText = "⚙️ Обработка аудио...";
             
             const reader = new FileReader();
             reader.onload = async (event) => {
                 const output = await classifier(event.target.result);
+                statusText.innerText = "✅ Анализ завершен";
                 
-                status.innerText = "✅ Результат анализа:";
-                resultDiv.innerHTML = output.slice(0, 3).map(item => `
-                    <div>
-                        <strong>${item.label}</strong>: ${(item.score * 100).toFixed(1)}%
-                        <div class="score-bar" style="width: ${item.score * 100}%"></div>
+                aiResults.innerHTML = output.slice(0, 3).map(item => `
+                    <div style="margin-bottom:15px">
+                        <div style="display:flex; justify-content:space-between">
+                            <span>${item.label}</span>
+                            <span>${(item.score * 100).toFixed(1)}%</span>
+                        </div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: ${item.score * 100}%"></div></div>
                     </div>
                 `).join('');
             };
             reader.readAsDataURL(file);
-
         } catch (err) {
-            status.innerText = "❌ Ошибка: " + err.message;
+            statusText.innerText = "❌ Ошибка запуска";
+            console.error(err);
         }
     });
 </script>
